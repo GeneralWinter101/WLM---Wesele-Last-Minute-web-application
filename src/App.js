@@ -13,6 +13,7 @@ import './Link.css';
 import './About.css';
 import Obiekty from './components/main/Obiekty.js';
 import data from './components/main/data.js';
+import User from './User.js';
 
 
 function Home() {
@@ -123,7 +124,36 @@ function Venues() {
 }
 
 function Users() {
-  return <h2>Strefa użytkownika</h2>;
+  return (
+    <>
+    <div>
+      <div className="App"> 
+      <nav>
+          <ul className="link-list">
+            <li>
+              <Link className="Link" to="/">Strona główna</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/about">O nas</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/venues">Obiekty</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/users">Strefa użytkownika</Link>
+            </li>
+          </ul>
+        </nav>
+        <header className="App-header">
+        
+        <hr className="solid-line"/>
+        
+        <User/>   
+         </header>
+        </div>
+      </div>
+    </>
+    )
 }
 
 const App =() => {
