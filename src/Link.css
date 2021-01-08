@@ -1,0 +1,35 @@
+nav {
+	position: absolute;
+	/* text-align: center; */
+
+}
+
+.link-list {
+	display: flex;
+	list-style: none;
+	justify-content:center;
+	align-items:center;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	/* padding-bottom: 10px; */
+	top: 0;
+}
+
+.solid-line {
+	border-bottom: 1px solid white;
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+	width: 100%;
+	overflow: hidden;
+	/* padding-bottom: 10px; */
+	margin-top: 0;
+	margin-bottom: 35px;
+}
+
+.Link {
+	text-decoration: none;
+	margin-right: 40px;
+	text-transform: uppercase;
+	color: white;
+	font-size: 15px;
+}

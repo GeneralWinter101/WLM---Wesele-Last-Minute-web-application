@@ -1,0 +1,68 @@
+form {
+	box-sizing: border-box;
+	display: flex;
+}
+
+.search-bar {
+	display: flex;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.search-field {
+	padding: 10px;
+	margin: 5px;
+	border: 0;
+	height: 15px;
+	width: 153px;
+	border-radius: 2px;
+	/* font-family: Georgia, 'Times New Roman', Times, serif; */
+	font-size: 15px;
+}
+
+input[type=submit] {
+	height: 35px;
+	border: 2px solid white;
+	background-color: transparent;
+	border-radius: 2px;
+	color: white;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-left: 0;
+	font-family: inherit;
+}
+
+.select {
+	/* padding: 5px; */
+	height: 15px;
+	
+	margin-left: 5px;
+	display: flex;
+	border-radius: 2px;
+	margin: 5px;
+	font-size: 15px;
+}
+
+select {
+	appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 153px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+#guest-select,
+#price-select {
+	margin-right: 10px;
+	background-color: white;
+	font-size: 15px;
+	line-height: 1.1;
+	padding: 5px;
+	height: 35px;
+	border-radius: 2px;
+
+}
