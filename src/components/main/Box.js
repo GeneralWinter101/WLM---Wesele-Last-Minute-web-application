@@ -18,7 +18,7 @@ const Box = props => {
 				</div>
 				<div className="box-guest-price-container">
 					<h4 className="box-guest-number">
-					{props.obiekt.guests} osób
+					{props.obiekt.guests.min} - {props.obiekt.guests.max} osób
 						</h4>
 					<h4 className="box-price">
 					{props.obiekt.price} PLN/os.
