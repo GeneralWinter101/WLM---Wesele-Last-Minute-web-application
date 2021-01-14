@@ -14,6 +14,8 @@ import './About.css';
 import Obiekty from './components/main/Obiekty.js';
 import data from './components/main/data.js';
 import User from './User.js';
+import home2 from './images/homepage/home2.jpg';
+import home3 from './images/homepage/home3.jpg';
 
 
 function Home() {
@@ -21,7 +23,7 @@ function Home() {
     <>
     <div>
       <div className="App"> 
-      <nav>
+      <nav className="top-nav-bar">
           <ul className="link-list">
             <li>
               <Link className="Link" to="/">Strona główna</Link>
@@ -37,15 +39,16 @@ function Home() {
             </li>
           </ul>
         </nav>
+
         <header className="App-header">
-        
-        <hr className="solid-line"/>
         <img src={logo} className="App-logo" alt="logo" />
            <p>
              Miejsce na Twoje wesele
            </p>
            <Znajdz/>
+           <footer>Copyright © Wesele Last Minute</footer>
          </header>
+
         </div>
       </div>
     </>
@@ -54,10 +57,11 @@ function Home() {
 
 function About() {
   return (
+    <>
     <div>
       <div className="App"> 
         
-        <nav>
+        <nav className="top-nav-bar">
           <ul className="link-list">
             <li>
               <Link className="Link" to="/">Strona główna</Link>
@@ -73,21 +77,27 @@ function About() {
             </li>
           </ul>
         </nav>
-        <hr className="solid-line"/>
+        
         <header className="App-header">
         <div className="about">
           <div className="about-box">
-            <img src="" alt="Karo"/>
-            <p>Karolina Romańska, założycielka portalu, pomysłodawczyni, przodowniczka pomocy parom narzeczeńskim! </p>
+            <img src={home3} alt="Karo"/>
+            <p className="about-text">
+              Karolina Romańska, założycielka portalu, pomysłodawczyni, przodowniczka pomocy parom narzeczeńskim! </p>
           </div>
           <div className="about-box">
-            <img src="" alt="Maciek"/>
-            <p>Maciej Kuć, prawnik, biznesmen, człowiek-mózg, doradca biznesowy oraz współ-pomysłodawca portalu.</p>
+            <img src={home2} alt="Maciek"/>
+            <p className="about-text">
+              Maciej Kuć, prawnik, biznesmen, człowiek-mózg, doradca biznesowy oraz współ-pomysłodawca portalu.
+              </p>
           </div>
         </div>
+        <footer>Copyright © Wesele Last Minute</footer>
          </header>
+
         </div>
       </div>
+      </>
   )
 }
 
@@ -96,7 +106,7 @@ function Venues() {
     <div>
       <div className="App"> 
         
-        <nav>
+        <nav className="top-nav-bar">
           <ul className="link-list">
             <li>
               <Link className="Link" to="/">Strona główna</Link>
@@ -112,12 +122,14 @@ function Venues() {
             </li>
           </ul>
         </nav>
-        <hr className="solid-line"/>
-        <header className="App-header">
+        
+        <header className="App-header venues-container" style={{zIndex:'-1'}}>
         <div>
           <Obiekty data={data}/>
         </div>
+        <footer>Copyright © Wesele Last Minute</footer>
          </header>
+
         </div>
       </div>
   )
@@ -128,7 +140,8 @@ function Users() {
     <>
     <div>
       <div className="App"> 
-      <nav>
+
+      <nav className="top-nav-bar">
           <ul className="link-list">
             <li>
               <Link className="Link" to="/">Strona główna</Link>
@@ -144,12 +157,46 @@ function Users() {
             </li>
           </ul>
         </nav>
+
         <header className="App-header">
-        
-        <hr className="solid-line"/>
-        
         <User/>   
+        <footer>Copyright © Wesele Last Minute</footer>
          </header>
+
+        </div>
+      </div>
+    </>
+    )
+}
+
+function FilteredBox() {
+  return (
+    <>
+    <div>
+      <div className="App"> 
+
+      <nav className="top-nav-bar">
+          <ul className="link-list">
+            <li>
+              <Link className="Link" to="/">Strona główna</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/about">O nas</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/venues">Obiekty</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/users">Strefa użytkownika</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <header className="App-header">
+        <FilteredBox/>   
+        <footer>Copyright © Wesele Last Minute</footer>
+         </header>
+
         </div>
       </div>
     </>
@@ -162,6 +209,9 @@ const App =() => {
     <Router>
       
         <Switch>
+        <Route path="/filtered-box">
+            <FilteredBox />
+          </Route>
           <Route path="/about">
             <About />
           </Route>

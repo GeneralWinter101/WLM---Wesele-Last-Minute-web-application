@@ -2,7 +2,11 @@
   text-align: center;
 }
 
-
+.top-nav-bar {
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+  width: 100%;
+}
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -28,6 +32,12 @@
   /* position: fixed; */
 }
 
+.venues-contianer {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -45,4 +55,15 @@
   /* height: 150px; */
   width: 300px;
   pointer-events: none;
+}
+
+footer {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 00.5em;
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  border-top: 1px solid white;
+  padding: 5px 0;
 }

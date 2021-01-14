@@ -5,7 +5,7 @@ const data = [
 		image: require('../../images/obiekty/Mazurkas/mz1.jpg').default,
 		name: "Hotel Mazurkas",
 		available: ["2020-01-25", "2021-08-01", "2021-09-12"],
-		guests: {min: 50, max:600},// if(x > min && x <= max)
+		guests: {min: 20, max:100},// if(x > min && x <= max)
 		price: 360,
 		opis: "Fantastyczne miejsce na Twoje wesele!  Klimat lat 40 i epoki Art Deco połączony z nowoczesnością, świetną obsługą, oraz wszechstronne możliwości aranżacyjne.  Weselny punkt dla najbardziej wymagających."
 	},
@@ -24,7 +24,7 @@ const data = [
 		name: "Hotel Pałac Aleksandrinum",
 		available: ["2021-04-22", "2021-06-04", "2021-05-14", "2021-09-10"],
 		guests: {min:50, max:700},
-		price: 390,
+		price: 190,
 		opis: "W całości odbudowany pałac przedwojennych hrabiów, zmodernizowany i uzupełniony o wszelkie wygody, przy zachowaniu oryginalnego klimatu. Miejsce na wesele dla tych, co lubią subtelny przepych i luksus."
 	},
 ];

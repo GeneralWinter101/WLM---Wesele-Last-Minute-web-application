@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './Znajdz.css';
 import data from './data.js';
-import Box from './Box.js';
+// import Box from './Box.js';
+import FilteredBox from './FilteredBox.js';
 
 
 export default function Znajdz() {
@@ -10,43 +11,46 @@ export default function Znajdz() {
 	const [guest, setGuest] = useState('50');
 	const [price, setPrice] = useState('100');
 
-  const filterObiekt = function (event) {
-	  event.preventDefault();
-	  console.log(guest)
+  const filterObiekt = function () {
+	// event.preventDefault();
+	// console.log(guest, data);
 	const when = data.filter((obiekt) => obiekt.available === date);
-	const prods = data.filter((obiekt) => obiekt.guests.min >= guest && obiekt.guests.max <= guest);
-	const money = data.filter((obiekt) => obiekt.price >= price)
-	console.log(prods);
+	const prods = data.filter((obiekt) => {
+			return obiekt.guests.min >= parseInt(guest.split('-')[0]) && obiekt.guests.max <= parseInt(guest.split('-')[1]);
+		}); //parswint
+	const money = data.filter((obiekt) => {
+		return obiekt.price >= parseInt(price.split('-')[0]) && obiekt.price <= parseInt(price.split('-')[1]);
+	});
+	// console.log(money, prods, when);
 	setFilteredObiekt(prods, when, money);
+	
   };
   
 	return (
 		<div className="search-bar">
-			<form className="search-form">
+			<form className="search-form" onSubmit={(event) => filterObiekt(event)}>
 				<input className="search-field" type="date" placeholder="data..." onChange={(e)=>setDate(e.target.value)}/>
 				<div className="select">
 					<select type="number" id="guest-select" onChange={(e)=>setGuest(e.target.value)}>
 						<option value="liczba">liczba gości...</option>
-						<option value={5}>5 - 20</option>
-						<option value={21}>21 - 50</option>
-						<option value={51}>51 - 300</option>
-						<option value={301}>300+ </option>
+						<option value={'5-20'}>5 - 20</option>
+						<option value={'21-50'}>21 - 50</option>
+						<option value={'51-300'}>51 - 300</option>
+						<option value={'301-999'}>300+ </option>
 					</select>
 					<select id="price-select" type="number" onChange={(e)=>setPrice(e.target.value)}>
 						<option value="cena">cena/os. ...</option>
-						<option value={100}>poniżej 200PLN</option>
-						<option value={201}>200 - 300PLN</option>
-						<option value={302}>301 - 400PLN</option>
-						<option value={401}>powyżej 400PLN</option>
+						<option value={'0-199'}>poniżej 200PLN</option>
+						<option value={'201-300'}>200 - 300PLN</option>
+						<option value={'301-400'}>300 - 400PLN</option>
+						<option value={'401-999'}>powyżej 400PLN</option>
 					</select>
 					</div>
 				
-				<input className="search-field" type="submit" value="Znajdź" onSubmit={(event) => filterObiekt(event)}></input>
+				<input className="search-field" type="submit" value="Znajdź"></input>
 			</form>
-			{filteredObiekt.map((obj) => 
-		<div>
-			<Box obiekt={obj}/>
-		</div>)}
+		{filteredObiekt.map((obj) => <FilteredBox key={obj.id} obj={obj}/>
+		)}
 		</div>
 	);
 }
