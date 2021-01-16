@@ -1,4 +1,5 @@
 import React from "react";
+import './filteredBox.css';
 
 const FilteredBox = props => {
 	<div className="box-container">
@@ -10,7 +11,7 @@ const FilteredBox = props => {
 					<select className="box-dates-select">
 					<option className="box-dates-check" value="0">Sprawdź</option>
 					{props.obj.available.map(date => 
-						<option className="box-dates-option" value={date}>{date}</option>
+						<option className="box-dates-option" value={date} key={date}>{date}</option>
 					)}
 					</select>				
 				</div>

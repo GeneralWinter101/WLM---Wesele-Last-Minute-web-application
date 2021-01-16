@@ -1,0 +1,70 @@
+.box-container {
+	display: inline-block;
+	/* margin: 0 auto; */
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	border: 1px solid white;
+	/* padding: 10px; */
+	margin: 10px;
+	width: 300px;
+	height: 500px;
+}
+
+.box-image {
+	width: 300px;
+	height: 300px;
+}
+
+.box-venue-title {
+	text-align: center;
+	font-size: 1em;
+}
+
+.box-venue-image {
+	width: 100%;
+	height: auto;
+}
+.box-dates {
+	font-size: 0.6em;
+	text-align: center;
+}
+.box-dates-select {
+	color: white;
+	padding: 2px 5px;
+	justify-content: center;
+	width: 100px;
+	border: 1px solid white;
+}
+.box-dates-check {
+	color: black;
+}
+
+.box-dates-option {
+	color: black;
+}
+
+.box-guest-price-container {
+	display: flex;
+	font-size: 0.7em;
+	justify-content: space-evenly;
+	font-weight: normal;
+	margin: 5px 0;
+}
+
+.box-guest-price-container > h4 {
+	margin: 0.5em;
+}
+/* .box-guest-number {
+	margin: 0;
+}
+.box-price {
+	text-align: center;
+	/* margin: 0; */
+	/* font-size: 0.7em; */
+/* } */ 
+
+.box-venue-description {
+	font-weight: normal;
+	width: 300px;
+	font-size: 0.6em;
+	text-align: center;
+}

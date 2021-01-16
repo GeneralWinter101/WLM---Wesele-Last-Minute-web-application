@@ -12,7 +12,7 @@ const Box = props => {
 					<select className="box-dates-select">
 					<option className="box-dates-check" value="0">Sprawdź</option>
 					{props.obiekt.available.map(date => 
-						<option className="box-dates-option" value={date}>{date}</option>
+						<option className="box-dates-option" key={date} value={date}>{date}</option>
 					)}
 					</select>				
 				</div>

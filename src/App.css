@@ -32,10 +32,10 @@
   /* position: fixed; */
 }
 
-.venues-contianer {
-  width: 100vw;
+.venues-container {
+  /* width: calc(100vw - 10%); */
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .App-link {

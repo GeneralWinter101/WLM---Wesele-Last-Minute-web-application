@@ -14,6 +14,7 @@ import './About.css';
 import Obiekty from './components/main/Obiekty.js';
 import data from './components/main/data.js';
 import User from './User.js';
+import ContactForm from './components/main/ContactForm.js';
 import home2 from './images/homepage/home2.jpg';
 import home3 from './images/homepage/home3.jpg';
 
@@ -23,6 +24,7 @@ function Home() {
     <>
     <div>
       <div className="App"> 
+      
       <nav className="top-nav-bar">
           <ul className="link-list">
             <li>
@@ -92,6 +94,43 @@ function About() {
               </p>
           </div>
         </div>
+        <Link className="contact-link Link" to="/form" >Skontaktuj się z nami!</Link>
+        <footer>Copyright © Wesele Last Minute</footer>
+         </header>
+
+        </div>
+      </div>
+      </>
+  )
+}
+
+function Form() {
+  return (
+    <>
+    <div>
+      <div className="App"> 
+        
+        <nav className="top-nav-bar">
+          <ul className="link-list">
+            <li>
+              <Link className="Link" to="/">Strona główna</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/about">O nas</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/venues">Obiekty</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/users">Strefa użytkownika</Link>
+            </li>
+          </ul>
+        </nav>
+        
+        <header className="App-header">
+        <div>
+          <ContactForm/>
+        </div>
         <footer>Copyright © Wesele Last Minute</footer>
          </header>
 
@@ -123,8 +162,8 @@ function Venues() {
           </ul>
         </nav>
         
-        <header className="App-header venues-container" style={{zIndex:'-1'}}>
-        <div>
+        <header className="App-header" style={{zIndex:'-1'}}>
+        <div className="venues-container">
           <Obiekty data={data}/>
         </div>
         <footer>Copyright © Wesele Last Minute</footer>
@@ -187,6 +226,9 @@ function FilteredBox() {
               <Link className="Link" to="/venues">Obiekty</Link>
             </li>
             <li>
+            <Link className="Link" to="/filtered-box"></Link>
+            </li>
+            <li>
               <Link className="Link" to="/users">Strefa użytkownika</Link>
             </li>
           </ul>
@@ -209,11 +251,15 @@ const App =() => {
     <Router>
       
         <Switch>
-        <Route path="/filtered-box">
-            <FilteredBox />
-          </Route>
+        
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/filtered-box">
+            <FilteredBox />
+          </Route>
+          <Route path="/form">
+            <Form />
           </Route>
           <Route path="/users">
             <Users />

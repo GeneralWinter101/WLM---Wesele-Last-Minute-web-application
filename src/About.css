@@ -1,6 +1,7 @@
 .about {
 	display: flex;
 	font-family: Georgia, 'Times New Roman', Times, serif;
+	
 }
 
 .about-box {
@@ -22,3 +23,13 @@
 	padding: 10px;
 	margin: 0;
 }
+
+@media (max-width: 768px) {
+	.about {
+		display: block;
+	}
+	.about-box {
+		width: 100%;
+		margin-left: 10px;
+	}
+  }

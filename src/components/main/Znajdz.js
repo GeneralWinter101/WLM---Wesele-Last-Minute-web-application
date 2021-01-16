@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './Znajdz.css';
 import data from './data.js';
-// import Box from './Box.js';
-import FilteredBox from './FilteredBox.js';
+import Box from './Box.js';
+// import FilteredBox from './FilteredBox.js';
 
 
 export default function Znajdz() {
@@ -14,15 +14,23 @@ export default function Znajdz() {
   const filterObiekt = function () {
 	// event.preventDefault();
 	// console.log(guest, data);
-	const when = data.filter((obiekt) => obiekt.available === date);
-	const prods = data.filter((obiekt) => {
-			return obiekt.guests.min >= parseInt(guest.split('-')[0]) && obiekt.guests.max <= parseInt(guest.split('-')[1]);
-		}); //parswint
-	const money = data.filter((obiekt) => {
-		return obiekt.price >= parseInt(price.split('-')[0]) && obiekt.price <= parseInt(price.split('-')[1]);
+	const filters = data.filter((obiekt) => obiekt.available === date) && data.filter((obiekt) => {
+		return obiekt.guests.min >= parseInt(guest.split('-')[0]) && obiekt.guests.max <= parseInt(guest.split('-')[1])
+		&&
+		data.filter((obiekt) => {
+			return obiekt.price >= parseInt(price.split('-')[0]) && obiekt.price <= parseInt(price.split('-')[1]);
+		});
 	});
-	// console.log(money, prods, when);
-	setFilteredObiekt(prods, when, money);
+	// const when = data.filter((obiekt) => obiekt.available === date);
+	// const prods = data.filter((obiekt) => {
+	// 		return obiekt.guests.min >= parseInt(guest.split('-')[0]) && obiekt.guests.max <= parseInt(guest.split('-')[1]);
+	// 	}); //parswint
+	// const money = data.filter((obiekt) => {
+	// 	return obiekt.price >= parseInt(price.split('-')[0]) && obiekt.price <= parseInt(price.split('-')[1]);
+	// });
+	console.log(filterObiekt);
+	// setFilteredObiekt(prods, when, money);
+	setFilteredObiekt(filters);
 	
   };
   
@@ -49,7 +57,14 @@ export default function Znajdz() {
 				
 				<input className="search-field" type="submit" value="Znajdź"></input>
 			</form>
-		{filteredObiekt.map((obj) => <FilteredBox key={obj.id} obj={obj}/>
+		{filteredObiekt.map((obj) => {
+			return (
+				<div key={obj.id} obj={obj}>
+				<Box />
+			</div>
+			)			
+		}
+		
 		)}
 		</div>
 	);

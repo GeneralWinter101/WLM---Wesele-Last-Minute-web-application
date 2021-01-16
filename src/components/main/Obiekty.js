@@ -7,7 +7,7 @@ const Obiekty = props => {
 		<>
 	<h1>Miejsca na Twoje wesele</h1>
 	<div>
-		{props.data.map((obiekt, index) => <Box key={index} obiekt={obiekt}/>)}
+		{props.data.map((obiekt) => <Box key={obiekt.id} obiekt={obiekt}/>)}
 	</div>
 	</>
 	)
