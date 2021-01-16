@@ -1,26 +1,30 @@
 import React, {useState} from 'react';
 import './Znajdz.css';
 import data from './data.js';
-import Box from './Box.js';
-// import FilteredBox from './FilteredBox.js';
+// import Box from './Box.js';
+import FilteredBox from './FilteredBox.js';
 
 
 export default function Znajdz() {
 	const [filteredObiekt, setFilteredObiekt] = useState([]);
 	const [date, setDate] = useState([]);
-	const [guest, setGuest] = useState('50');
+	const [guestMin, setGuestMin] = useState(0);
+	const [guestMax, setGuestMax] = useState(0);
 	const [price, setPrice] = useState('100');
 
-  const filterObiekt = function () {
+  const filterObiekt = function (e) {
+	  e.preventDefault();//50 <= 600 i 700 <= 
+	  const filtered = data.filter(el =>  parseInt(guestMin) <= el.guests.min && parseInt(guestMax) <= el.guests.max );
+	  console.log(filtered)
 	// event.preventDefault();
 	// console.log(guest, data);
-	const filters = data.filter((obiekt) => obiekt.available === date) && data.filter((obiekt) => {
-		return obiekt.guests.min >= parseInt(guest.split('-')[0]) && obiekt.guests.max <= parseInt(guest.split('-')[1])
-		&&
-		data.filter((obiekt) => {
-			return obiekt.price >= parseInt(price.split('-')[0]) && obiekt.price <= parseInt(price.split('-')[1]);
-		});
-	});
+	// const filters = data.filter((obiekt) => obiekt.available === date) && data.filter((obiekt) => {
+	// 	return obiekt.guests.min >= parseInt(guest.split('-')[0]) && obiekt.guests.max <= parseInt(guest.split('-')[1])
+	// 	&&
+	// 	data.filter((obiekt) => {
+	// 		return obiekt.price >= parseInt(price.split('-')[0]) && obiekt.price <= parseInt(price.split('-')[1]);
+	// 	});
+	// });
 	// const when = data.filter((obiekt) => obiekt.available === date);
 	// const prods = data.filter((obiekt) => {
 	// 		return obiekt.guests.min >= parseInt(guest.split('-')[0]) && obiekt.guests.max <= parseInt(guest.split('-')[1]);
@@ -30,7 +34,7 @@ export default function Znajdz() {
 	// });
 	console.log(filterObiekt);
 	// setFilteredObiekt(prods, when, money);
-	setFilteredObiekt(filters);
+	//setFilteredObiekt(filters);
 	
   };
   
@@ -39,13 +43,8 @@ export default function Znajdz() {
 			<form className="search-form" onSubmit={(event) => filterObiekt(event)}>
 				<input className="search-field" type="date" placeholder="data..." onChange={(e)=>setDate(e.target.value)}/>
 				<div className="select">
-					<select type="number" id="guest-select" onChange={(e)=>setGuest(e.target.value)}>
-						<option value="liczba">liczba gości...</option>
-						<option value={'5-20'}>5 - 20</option>
-						<option value={'21-50'}>21 - 50</option>
-						<option value={'51-300'}>51 - 300</option>
-						<option value={'301-999'}>300+ </option>
-					</select>
+					<input type="number" id="guest-select" onChange={(e)=>setGuestMin(e.target.value)}/>		
+					<input type="number" id="guest-select" onChange={(e)=>setGuestMax(e.target.value)}/>
 					<select id="price-select" type="number" onChange={(e)=>setPrice(e.target.value)}>
 						<option value="cena">cena/os. ...</option>
 						<option value={'0-199'}>poniżej 200PLN</option>
@@ -56,17 +55,24 @@ export default function Znajdz() {
 					</div>
 				
 				<input className="search-field" type="submit" value="Znajdź"></input>
-			</form>
-		{filteredObiekt.map((obj) => {
+				{filteredObiekt.map((obj) => {
 			return (
+				<header className="App-header">
 				<div key={obj.id} obj={obj}>
-				<Box />
+				<FilteredBox />
 			</div>
+				   <footer>Copyright © Wesele Last Minute</footer>
+				 </header>
+
+				
 			)			
 		}
 		
 		)}
+			</form>
+		
 		</div>
+		
 	);
 }
 

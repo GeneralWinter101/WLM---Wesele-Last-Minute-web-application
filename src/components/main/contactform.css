@@ -1,0 +1,12 @@
+.both-forms {
+	display: flex;
+}
+
+.form-container {
+	display: inline-grid;
+	max-width: 300px;
+}
+
+.form-user, .form-venue {
+	display: block;
+}
