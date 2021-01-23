@@ -34,6 +34,7 @@
 
 .venues-container {
   /* width: calc(100vw - 10%); */
+  display: inline-block;
   height: 100vh;
   overflow-y: scroll;
 }

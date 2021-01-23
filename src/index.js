@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
+import {  Link  } from "react-router-dom";
 // import reportWebVitals from './reportWebVitals';
 // import Carousel from "./components/main/Carousel.js";
 
@@ -13,6 +14,22 @@ import { BrowserRouter } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <nav className="top-nav-bar">
+          <ul className="link-list">
+            <li>
+              <Link className="Link" to="/">Strona główna</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/about">O nas</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/venues">Obiekty</Link>
+            </li>
+            <li>
+              <Link className="Link" to="/users">Strefa użytkownika</Link>
+            </li>
+          </ul>
+        </nav>
       <App/>
     </BrowserRouter>
   </React.StrictMode>,

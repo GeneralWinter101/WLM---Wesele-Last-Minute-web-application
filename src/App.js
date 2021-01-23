@@ -25,22 +25,7 @@ function Home() {
     <div>
       <div className="App"> 
       
-      <nav className="top-nav-bar">
-          <ul className="link-list">
-            <li>
-              <Link className="Link" to="/">Strona główna</Link>
-            </li>
-            <li>
-              <Link className="Link" to="/about">O nas</Link>
-            </li>
-            <li>
-              <Link className="Link" to="/venues">Obiekty</Link>
-            </li>
-            <li>
-              <Link className="Link" to="/users">Strefa użytkownika</Link>
-            </li>
-          </ul>
-        </nav>
+      
 
         <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
