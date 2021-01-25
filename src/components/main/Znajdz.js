@@ -22,17 +22,17 @@ export default function Znajdz() {
 			) {
 				return el;
 			}
-			if (price <= el.price || price >= el.price) {
+			if (parseInt(price.split('-')[0]) <= el.price || parseInt(price.split('-')[1]) >= el.price) {
 				return el.price;
 			}
-			if (date <= el.available || date >= el.available) {
+			if (parseInt(date) <= el.available || parseInt(date) >= el.available) {
 				return el.available;
 			}
 			return filtered;
 		});
 		setFilteredObiekt(filtered);
 	};
-	
+
 	console.log(filterObiekt);
 	// console.log(filtered);
 	return (
@@ -54,11 +54,13 @@ export default function Znajdz() {
 				<input className="search-field" type="submit" value="Znajdź"></input>
 
 			</form>
-			{filteredObiekt.map((obj) => {
+			{filteredObiekt.map((obj, id) => {
 				return (
 					<header className="App-header">
-						<div key={obj.id} obj={obj}>
-							<FilteredBox image={obj.image} name={obj.name} available={obj.available} guests={obj.guests} opis={obj.opis} />
+						<div key={id} obj={obj}>
+							<FilteredBox
+								image={obj.image} name={obj.name} available={obj.available} guests={obj.guests} opis={obj.opis}
+							/>
 						</div>
 						<footer>Copyright © Wesele Last Minute</footer>
 					</header>
@@ -67,7 +69,7 @@ export default function Znajdz() {
 			)}
 		</div>
 	);
-	
+
 };
 
 // export default function App() {
