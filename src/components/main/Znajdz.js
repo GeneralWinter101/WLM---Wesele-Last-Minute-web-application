@@ -54,12 +54,12 @@ export default function Znajdz() {
 				<input className="search-field" type="submit" value="Znajdź"></input>
 
 			</form>
-			{filteredObiekt.map((obj, id) => {
+			{filteredObiekt && filteredObiekt.map((obj) => {
 				return (
 					<header className="App-header">
-						<div key={id} obj={obj}>
+						<div key={obj.id} obj={obj}>
 							<FilteredBox
-								image={obj.image} name={obj.name} available={obj.available} guests={obj.guests} opis={obj.opis}
+								image={obj} name={obj} available={obj} guests={obj} opis={obj}
 							/>
 						</div>
 						<footer>Copyright © Wesele Last Minute</footer>

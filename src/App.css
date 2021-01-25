@@ -39,6 +39,10 @@
   overflow-y: scroll;
 }
 
+.venues-header {
+  margin-top: 20px;
+}
+
 .App-link {
   color: #61dafb;
 }
